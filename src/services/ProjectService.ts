@@ -270,8 +270,11 @@ export default class ProjectService {
   updateGarage(projectId: string, propertyId: string, buildingId: string, garageId: string, data: any) {
     return axios
       .put(`${this.url}/${projectId}/properties/${propertyId}/buildings/${buildingId}/garages/${garageId}`, data)
-      .then((response) => console.log(response))
-      .catch((error) => console.error(error));
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Error updating garage:', error);
+        throw error;
+      });
   }
 
   getMembers(projectId: string) {
