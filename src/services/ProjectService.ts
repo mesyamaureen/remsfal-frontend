@@ -267,6 +267,13 @@ export default class ProjectService {
       .catch((error) => console.error(error));
   }
 
+  updateGarage(projectId: string, propertyId: string, buildingId: string, garageId: string, data: any) {
+    return axios
+      .put(`${this.url}/${projectId}/properties/${propertyId}/buildings/${buildingId}/garages/${garageId}`, data)
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
+  }
+
   getMembers(projectId: string) {
     return axios
       .get(`${this.url}/${projectId}/members`)
