@@ -61,7 +61,7 @@ export default defineComponent({
           console.error('Error fetching garages:', error);
         });
     },
-    openForm(garage: GarageItem) {
+    openForm(garage: GarageItem | null) {
       this.currentGarage = garage || null;
       this.showForm = true;
     },

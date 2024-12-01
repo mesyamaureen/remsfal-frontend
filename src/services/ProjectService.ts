@@ -72,7 +72,7 @@ export interface GarageItem {
   rent: number;
 }
 
-export default class ProjectService {
+class ProjectService {
   private readonly url: string = '/api/v1/projects';
 
   getProjects(offset: number = 0, limit: number = 10): Promise<ProjectList> {
@@ -329,3 +329,5 @@ export default class ProjectService {
       .catch((error) => console.error(error));
   }
 }
+
+export default new ProjectService();
